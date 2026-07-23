@@ -18,7 +18,7 @@ app = FastAPI(
 # Allow the React dev server to call this API
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000","https://medical-report-analyzer-ebon.vercel.app","https://medical-report-analyzer-git-main-karthikeyan6.vercel.app"],  # Vite / CRA dev ports
+    allow_origins=["http://localhost:5173", "http://localhost:3000","https://medical-report-analyzer-ebon.vercel.app","https://medical-report-analyzer-git-main-karthikeyan6.vercel.app","https://medical-report-analyzer-mjlss7o53-karthikeyan6.vercel.app/"],  # Vite / CRA dev ports
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
