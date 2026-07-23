@@ -1,0 +1,30 @@
+.pulse-line {
+  width: 100%;
+  height: 40px;
+  overflow: hidden;
+}
+
+.pulse-line__svg {
+  width: 200%;
+  height: 100%;
+  display: block;
+}
+
+.pulse-line__path {
+  stroke: var(--clinical-teal);
+  opacity: 0.55;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: pulse-travel 7s linear infinite;
+}
+
+.pulse-line--active .pulse-line__path {
+  stroke: var(--alert-amber);
+  opacity: 0.9;
+  animation-duration: 1.6s;
+}
+
+@keyframes pulse-travel {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}

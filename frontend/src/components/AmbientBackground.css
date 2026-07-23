@@ -1,0 +1,51 @@
+.ambient-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: var(--paper);
+  pointer-events: none;
+}
+
+.ambient-bg__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.55;
+  animation: ambient-drift 26s ease-in-out infinite alternate;
+}
+
+.ambient-bg__blob--pine {
+  width: 620px;
+  height: 620px;
+  top: -220px;
+  right: -180px;
+  background: radial-gradient(circle at 30% 30%, var(--clinical-teal-dim), transparent 70%);
+}
+
+.ambient-bg__blob--clay {
+  width: 520px;
+  height: 520px;
+  bottom: -200px;
+  left: -160px;
+  background: radial-gradient(circle at 60% 40%, var(--clay-dim), transparent 70%);
+  animation-delay: -8s;
+}
+
+.ambient-bg__trace {
+  position: absolute;
+  bottom: 8%;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  opacity: 0.05;
+}
+
+@keyframes ambient-drift {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(-24px, 20px) scale(1.05); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-bg__blob { animation: none; }
+}

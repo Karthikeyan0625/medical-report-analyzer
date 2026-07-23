@@ -1,0 +1,180 @@
+.app {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: max-width 220ms ease;
+}
+
+.app--wide {
+  max-width: 960px;
+}
+
+.app__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.app__brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.app__brand-mark {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  color: var(--clinical-teal-deep);
+}
+
+.app__brand-sub {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.app__nav {
+  display: flex;
+  gap: 4px;
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 3px;
+}
+
+.app__nav-btn {
+  background: none;
+  border: none;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  padding: 6px 14px;
+  border-radius: 16px;
+  transition: background 140ms ease, color 140ms ease;
+}
+
+.app__nav-btn--active {
+  background: var(--clinical-teal-deep);
+  color: var(--paper-raised);
+}
+
+.app__account {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app__avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+}
+
+.app__account-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.app__logout {
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: border-color 140ms ease, color 140ms ease;
+}
+
+.app__logout:hover {
+  border-color: var(--clinical-teal);
+  color: var(--clinical-teal-deep);
+}
+
+.app__main {
+  flex: 1;
+  margin-top: 28px;
+}
+
+.app__analyzing,
+.app__error {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+  padding: 56px 40px;
+  text-align: center;
+}
+
+.app__analyzing-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--clinical-teal);
+}
+
+.app__analyzing-text {
+  font-family: var(--font-display);
+  font-size: 22px;
+  margin: 12px 0 0;
+}
+
+.app__error .app__analyzing-eyebrow { color: var(--alert-red); }
+.app__error button { margin-top: 20px; }
+
+.app__footer {
+  margin-top: 48px;
+  text-align: center;
+}
+
+.app__footer p {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.app-loading {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-loading__text {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 640px) {
+  .app {
+    padding: 20px 16px 60px;
+  }
+  .app__header {
+    gap: 10px;
+  }
+  .app__account-name {
+    display: none;
+  }
+  .app__analyzing,
+  .app__error {
+    padding: 40px 20px;
+  }
+  .app__analyzing-text {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,67 @@
+:root {
+  /* ---- Color tokens (premium clinical) ---- */
+  --paper: #FAF7F0;
+  --paper-raised: #FFFFFF;
+  --ink: #17231E;
+  --ink-soft: #5B6B62;
+  --line: #E6E0D2;
+
+  --clinical-teal: #0E4B3A;
+  --clinical-teal-dim: #E4EFE8;
+  --clinical-teal-deep: #082E23;
+  --alert-amber: #B5502A;
+  --alert-amber-dim: #F6E8DD;
+  --alert-red: #A32E2E;
+  --alert-red-dim: #F5E2E0;
+  --normal-sage: #3E7050;
+  --normal-sage-dim: #E7EFE7;
+
+  --clay: #C4946F;
+  --clay-dim: rgba(196, 148, 111, 0.14);
+
+  /* ---- Type ---- */
+  --font-display: 'Fraunces', serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --shadow-soft: 0 1px 2px rgba(23, 35, 30, 0.04), 0 8px 24px rgba(23, 35, 30, 0.06);
+  --shadow-lifted: 0 4px 8px rgba(23, 35, 30, 0.05), 0 16px 40px rgba(23, 35, 30, 0.09);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a { color: inherit; }
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--clinical-teal-dim);
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--clinical-teal);
+  outline-offset: 2px;
+}

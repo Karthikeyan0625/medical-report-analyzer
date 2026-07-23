@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+python-multipart
+easyocr
+pdfplumber
+pydicom
+pillow
+numpy
+torch
+torchvision
+scikit-learn
+xgboost
+firebase-admin

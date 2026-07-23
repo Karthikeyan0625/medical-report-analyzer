@@ -1,0 +1,119 @@
+.history {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+  padding: 28px;
+}
+
+.history__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.history__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.history__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 26px;
+  margin: 8px 0 0;
+}
+
+.history__back {
+  background: none;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 9px 16px;
+  border-radius: 6px;
+  transition: background 140ms ease, color 140ms ease;
+  white-space: nowrap;
+}
+
+.history__back:hover {
+  background: var(--ink);
+  color: var(--paper-raised);
+}
+
+.history__empty {
+  color: var(--ink-soft);
+  font-size: 14px;
+  padding: 24px 0;
+  text-align: center;
+}
+
+.history__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.history__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.history__row:last-child {
+  border-bottom: none;
+}
+
+.history__row-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.history__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.history__dot--clear { background: var(--normal-sage); }
+.history__dot--alert { background: var(--alert-amber); }
+
+.history__row-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 2px;
+  text-transform: capitalize;
+}
+
+.history__row-file {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 260px;
+}
+
+.history__row-date {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .history__row-file { max-width: 140px; }
+}
