@@ -21,7 +21,7 @@ from firebase_admin import credentials, firestore
 
 _db = None
 
-CREDENTIALS_PATH = Path("app/firebase_credentials.json")
+CREDENTIALS_PATH = Path(__file__).resolve().parents[1] / "firebase_credentials.json"
 
 
 def _get_db():
@@ -29,7 +29,7 @@ def _get_db():
     if _db is None:
         if not CREDENTIALS_PATH.exists():
             raise RuntimeError(
-                "Firebase credentials not found at app/firebase_credentials.json. "
+                f"Firebase credentials not found at {CREDENTIALS_PATH}. "
                 "Download it from Firebase Console -> Project Settings -> Service Accounts."
             )
         cred = credentials.Certificate(str(CREDENTIALS_PATH))
