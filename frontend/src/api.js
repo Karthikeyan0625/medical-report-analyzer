@@ -1,6 +1,6 @@
 import { auth } from './firebase.js'
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8000'
+const API_BASE =import.meta.env.VITE_API_BASE || "http://localhost:8000";
 
 async function authHeaders() {
   const token = await auth.currentUser?.getIdToken()

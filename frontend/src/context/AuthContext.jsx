@@ -17,12 +17,18 @@ export function AuthProvider({ children }) {
   const [authError, setAuthError] = useState('')
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-      setUser(firebaseUser)
-      setCheckingAuth(false)
-    })
-    return unsubscribe
-  }, [])
+  const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+    if (firebaseUser) {
+      const token = await firebaseUser.getIdToken();
+      console.log("Firebase Token:", token);
+    }
+
+    setUser(firebaseUser);
+    setCheckingAuth(false);
+  });
+
+  return unsubscribe;
+}, []);
 
   async function loginWithGoogle() {
     setAuthError('')

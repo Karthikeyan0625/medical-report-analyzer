@@ -9,6 +9,8 @@ import { useAuth } from './context/AuthContext.jsx'
 import { analyzeReport } from './api.js'
 import './App.css'
 
+
+
 const STAGES = {
   IDLE: 'idle',
   ANALYZING: 'analyzing',
@@ -16,6 +18,7 @@ const STAGES = {
   ERROR: 'error',
 }
 
+  
 export default function App() {
   const { user, checkingAuth, logout } = useAuth()
 
