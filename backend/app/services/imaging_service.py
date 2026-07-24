@@ -45,12 +45,25 @@ IMAGE_TRANSFORM = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
 ])
 
-_loaded_models: Dict[str, torch.nn.Module] = {}
+import gc
+
+_loaded_model_type: str = None
+_loaded_model: torch.nn.Module = None
 
 
 def _load_model(report_type: str) -> torch.nn.Module:
-    if report_type in _loaded_models:
-        return _loaded_models[report_type]
+    global _loaded_model_type, _loaded_model
+
+    if _loaded_model_type == report_type and _loaded_model is not None:
+        return _loaded_model
+
+    # Evict whichever model is currently cached before loading a new one --
+    # keeping all 4 CNNs in memory at once is what pushes free-tier
+    # deployments (512MB RAM) over the limit. Each request only needs one.
+    if _loaded_model is not None:
+        del _loaded_model
+        _loaded_model = None
+        gc.collect()
 
     config = MODEL_CONFIG[report_type]
     num_classes = len(config["labels"])
@@ -65,7 +78,8 @@ def _load_model(report_type: str) -> torch.nn.Module:
         print(f"[warn] No trained weights found at {weights_path}, using untrained model.")
 
     model.eval()
-    _loaded_models[report_type] = model
+    _loaded_model_type = report_type
+    _loaded_model = model
     return model
 
 
